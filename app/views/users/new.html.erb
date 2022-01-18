@@ -1,0 +1,118 @@
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Create User
+  </div>
+  <div class="card-body">
+    <%= form_with model: @user, local: true do |form| %>
+
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :name %> </div>
+        <div class="col-md-6"><%= form.text_field :name %>
+          <% if @user.errors[:name].any? %>
+              <% @user.errors[:name].each do |message| %>
+                <div class="text-danger">
+                  <%= message %>
+                </div>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :email %> </div>
+        <div class="col-md-6"> <%= form.text_field :email %> 
+          <% if @user.errors[:email].any? %>
+              <% @user.errors[:email].each do |message| %>
+                <div class="text-danger">
+                  <%= message %>
+                </div>
+              <% end %>
+          <% end %>        
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :password %> </div>
+        <div class="col-md-6"> <%= form.password_field :password %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :password_confirmation %> </div>
+        <div class="col-md-6"> <%= form.password_field :password_confirmation %>
+          <% if @user.errors[:password_confirmation].any? %>
+            <% @user.errors[:password_confirmation].each do |message| %>
+              <div class="text-danger">
+                <%= message %>
+              </div>
+            <% end %>
+          <% end %>         
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :Type %> </div>
+        <div class="col-md-6"> <%= form.select :role, ['admin', 'user']%>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :phone %> </div>
+        <div class="col-md-6"> <%= form.text_field :phone %>
+          <% if @user.errors[:phone].any? %>
+            <% @user.errors[:phone].each do |message| %>
+              <div class="text-danger">
+                <%= message %>
+              </div>
+            <% end %>
+          <% end %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :date_of_birth %> </div>
+        <div class="col-md-6"> <%= form.date_field :dob %> 
+          <% if @user.errors[:dob].any? %>
+            <% @user.errors[:dob].each do |message| %>
+              <div class="text-danger">
+                <%= message %>
+              </div>
+            <% end %>
+          <% end %>        
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :address %> </div>
+        <div class="col-md-6"> <%= form.text_area :address %> 
+          <% if @user.errors[:address].any? %>
+            <% @user.errors[:address].each do |message| %>
+              <div class="text-danger">
+                <%= message %>
+              </div>
+            <% end %>
+          <% end %>        
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :profile %> </div>
+        <div class="col-md-6"> <%= form.file_field :profile, accept: 'image/png, image/gif, image/jpeg' %>
+          <% if @user.errors[:profile].any? %>
+            <% @user.errors[:profile].each do |message| %>
+              <div class="text-danger">
+                <%= message %>
+              </div>
+            <% end %>
+          <% end %>        
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row mb-0">
+	  <div class="col-md-3 offset-md-2">
+      <%= form.submit "Create", class: "btn btn-success" %>
+      <%= button_tag "Clear", type: :reset, class: "btn btn-success" %>
+	  </div>
+    <% end %>
+  </div>
+</div>

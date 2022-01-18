@@ -1,0 +1,31 @@
+  <div class="container">
+    <h1>Update Post</h1>
+  </div>
+  <div class="card-body">
+    <%= form_with model: @post, url:"/post/update" do |form| %>
+    <%= form.text_field :id %>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :title %> </div>
+        <div class="col-md-6"><%= form.text_field :title, readonly:"true"%>
+        </div>
+      </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :description %> </div>
+        <div class="col-md-6"> <%= form.text_area :description, readonly:"true" %>        
+        </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :status %> </div>
+      <div class="col-md-6">
+        <%= form.check_box :status %>
+      </div>
+    </div>
+    <br/>
+    <div class="form-group row mb-0">
+	  <div class="col-md-3 offset-md-2">
+      <%= form.submit "Confirm", method: :post, class: "btn btn-success" %>
+      <%= button_tag "Clear", type: :reset, class: "btn btn-success" %>
+	  </div>
+    <% end %>
+  </div>

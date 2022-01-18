@@ -1,0 +1,52 @@
+<div class="py-4">
+<div class= "mb-4 btn-group">
+  <div class= "mx-2">
+    <%= button_to "Create", new_post_path, method: :get, class: "btn btn-success" %>
+  </div>
+  <div class= "mx-2">
+    <%= button_to "Upload", post_upload_path, method: :get, class: "btn btn-success" %>
+  </div>
+  <div class= "mx-2">
+    <%=link_to "Download CSV", posts_path(format: "csv"), class: "btn btn-success" %>
+  </div>
+  <form class="d-flex" method="GET"  action="/search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+    <button class="btn btn-success" type="submit">Search</button>
+  </form>
+</div>
+<div class="card">
+  <div class="card-header">
+    Post Lists
+  </div>
+  <div class="card-body"> 
+    <table class="table table-responsive table-bordered">
+        <thead>
+            <tr>
+                <th>Post title</th>
+                <th>Post Description</th>
+                <th>Posted User</th>
+                <th>Posted Date</th>
+                <th collapse=2>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @posts.each do |post| %>
+            <tr>
+                <td><%= link_to post.title, post %></td>
+                <td><%= post.description %></td>
+                <td><%= post.create_user_id %></td>
+                <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+                <td class="btn-toolbar"><%= button_to "Edit", edit_post_path(post), method: :get, class: "btn btn-success mx-2" %>
+                <%= button_to "Delete", post_path(post),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" }, 
+                                class: "btn btn-danger" %></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<%= will_paginate @posts %>
+

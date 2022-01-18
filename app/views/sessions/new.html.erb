@@ -1,0 +1,27 @@
+<div class="card" style="width: 40rem; margin: 0 auto; float: none; margin-bottom: 10px; margin-top: 100px;">
+  <div class="card-header text-white bg-success">
+    Log in
+  </div>
+  <div class="card-body">
+    <%= form_with url: '/login', local: true do |form| %>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :email %> </div>
+        <div class="col-md-6"><%= form.text_field :email %>
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :password %> </div>
+        <div class="col-md-6"> <%= form.password_field :password %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row mb-0">
+	  <div class="col-md-5 offset-md-2">
+       <%= form.submit "Login", class: "btn btn-success" %>
+       <%= link_to "Forgot Password?", new_password_reset_path %>
+	  </div>
+    <% end %>
+  </div>
+</div>
+

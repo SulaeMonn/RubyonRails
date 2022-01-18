@@ -1,0 +1,35 @@
+<div class="card" style="width: 40rem; margin: 0 auto; float: none; margin-bottom: 10px; margin-top: 100px;">
+  <div class="card-header text-white bg-success">
+    Log in
+  </div>
+  <div class="card-body">
+    <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+    <% if @user.errors.any? %>
+    <div class='error_messages'>
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= f.label :password %> </div>
+        <div class="col-md-6"><%= f.text_field :password %>
+        </div>
+      </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= f.label :password_confirmation %> </div>
+        <div class="col-md-6"> <%= f.password_field :password_confirmation %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row mb-0">
+	  <div class="col-md-5 offset-md-2">
+       <%= f.submit 'Update password' %>
+	  </div>
+    <% end %>
+  </div>
+</div>

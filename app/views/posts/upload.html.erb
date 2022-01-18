@@ -1,0 +1,20 @@
+<div class="card" style="width: 40rem; margin: 0 auto; float: none; margin-bottom: 10px; margin-top: 100px;">
+  <div class="card-header text-white bg-success">
+    Upload CSV file
+  </div>
+  <div class="card-body">
+    <%= form_tag import_posts_path, multipart: true do%>
+      <div class="form-group row">
+        <div class="col-md-2"> Csv file</div>
+        <div class="col-md-6"><%= file_field_tag :file %>
+        </div>
+      </div>
+      <br/>
+      <div class="form-group row mb-0">
+        <div class="col-md-3 offset-md-2">
+          <%= submit_tag "import", class: "btn btn-success" %>
+	      </div>
+      </div>
+    <% end %>
+  </div>
+</div>

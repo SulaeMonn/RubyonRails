@@ -1,0 +1,20 @@
+<div class="card" style="width: 40rem; margin: 0 auto; float: none; margin-bottom: 10px; margin-top: 100px;">
+  <div class="card-header text-white bg-success">
+    Reset Password
+  </div>
+  <div class="card-body">
+    <%= form_tag password_resets_path, :method => :post do %>
+
+    <div class="form-group row">
+      <div class="col-md-2"> <%= label_tag :email %> </div>
+        <div class="col-md-6"><%= text_field_tag :email, params[:email] %>
+        </div>
+      </div>
+    <br/>
+    <div class="form-group row mb-0">
+	  <div class="col-md-5 offset-md-2">
+       <%= submit_tag "Reset Password" %>
+	  </div>
+    <% end %>
+  </div>
+</div>

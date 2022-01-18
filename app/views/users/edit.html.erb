@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Profile Edit
+  </div>
+  <div class="card-body">
+    <%= form_with model: @user, action:"users#update" do |form| %>
+
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :name %> </div>
+        <div class="col-md-6"><%= form.text_field :name %>
+        </div>
+      </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :email %> </div>
+        <div class="col-md-6"> <%= form.text_field :email %>     
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :phone %> </div>
+        <div class="col-md-6"> <%= form.text_field :phone %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :date_of_birth %> </div>
+        <div class="col-md-6"> <%= form.date_field :dob %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :address %> </div>
+        <div class="col-md-6"> <%= form.text_area :address %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :old_profile %> </div>
+        <div class="col-md-6"><%= image_tag current_user.profile, style: "width: 250px; display: block" %>       
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <div class="col-md-2"> <%= form.label :new_profile %> </div>
+        <div class="col-md-6"> <%= form.file_field :profile, accept: 'image/png, image/gif, image/jpeg' %>      
+        </div>
+    </div>
+    <br/>
+    <div class="form-group row mb-0">
+	  <div class="col-md-4 offset-md-2">
+      <%= form.submit :type =>"submit", class: "btn btn-success" %>
+      <%= button_tag "Clear", type: :reset, class: "btn btn-success" %>
+      <%= link_to "Change Password" %>
+	  </div>
+    <% end %>
+  </div>
+</div>
