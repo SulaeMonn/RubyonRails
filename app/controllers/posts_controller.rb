@@ -15,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def upload
-
   end
 
   def import
@@ -63,7 +62,6 @@ class PostsController < ApplicationController
   def destroy
     @post = PostsService.deletePost(params[:id])
     @post.destroy
-
     redirect_to posts_path
   end
 
@@ -81,7 +79,6 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.status = params[:post][:status]
-
     if @post.update(post_params)
       redirect_to posts_path, :notice => "Your post has been updated!"
     else
